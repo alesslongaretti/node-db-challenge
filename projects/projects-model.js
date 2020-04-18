@@ -1,5 +1,14 @@
 const db = require('../data/db-config.js');
 
-module.exports = {
+function find() {
+    return db('projects')
+}
 
+function add(projectData) {
+    return db('projects').insert(projectData)
+}
+
+module.exports = {
+    find,
+    add
 };
