@@ -20,7 +20,7 @@ function findTasks() {
     return db('tasks')
     .join("projects", "projects.id", "tasks.project_id")
     .select('tasks.project_id',"tasks.id","tasks.description", "tasks.notes", 
-    "tasks.completed", "projects.project-name", "projects.description")
+    "tasks.completed", "projects.project_name", "projects.description")
 }
 
 

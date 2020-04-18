@@ -3,20 +3,20 @@ exports.up = function(knex) {
     return knex.schema
         .createTable('projects', tbl => {
             tbl.increments();
-            tbl.text('project-name', 128).notNullable();
+            tbl.text('project_name', 128).notNullable();
             tbl.text('description', 1000);
-            tbl.boolean('completed').defaultTo(0);
+            tbl.boolean('completed').defaultTo(false);
         })
         .createTable('resources', tbl => {
             tbl.increments();
-            tbl.text('resource-name', 128).notNullable().unique();
+            tbl.text('resource_name', 128).notNullable().unique();
             tbl.text('description', 1000);
         })
         .createTable('tasks', tbl => {
             tbl.increments();
             tbl.text('description', 1000).notNullable();
             tbl.text('notes', 190);
-            tbl.boolean('completed').defaultTo(0);
+            tbl.boolean('completed').defaultTo(false);
             tbl.integer('project_id')
                 .unsigned()
                 .notNullable()
